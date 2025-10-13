@@ -1,7 +1,7 @@
 [project]
 name = "fragpipe-runner"
 version = "0.1.0"
-description = "Add your description here"
+description = "A Python library to simplify and support the execution of FragPipe when running in command-line mode."
 readme = "README.md"
 license = "Apache-2.0"
 authors = [
