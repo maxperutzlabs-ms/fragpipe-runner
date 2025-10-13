@@ -1,0 +1,11 @@
+[project]
+name = "fragpipe-runner"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+license = "Apache-2.0"
+authors = [
+  { name = "David M. Hollenstein", email = "hollenstein.david@gmail.com" },
+]
+requires-python = ">=3.10"
+dependencies = []
