@@ -8,4 +8,6 @@ authors = [
   { name = "David M. Hollenstein", email = "hollenstein.david@gmail.com" },
 ]
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "pandas>=1.5.3",
+]
