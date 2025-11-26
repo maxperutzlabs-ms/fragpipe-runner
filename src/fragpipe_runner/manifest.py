@@ -39,8 +39,9 @@ def sdrf_to_manifest(
             f"Supported types are: {supported_data_types}."
         )
     if manifest_filepath is None:
-        manifest_filepath = pathlib.Path(sdrf_filepath).parent / manifest_filename
-        logger.debug(f"No 'manifest_filepath' provided, using '{manifest_filepath}'")
+        output_filepath = pathlib.Path(sdrf_filepath).parent / manifest_filename
+    else:
+        output_filepath = pathlib.Path(manifest_filepath)
 
     sdrf_table = pd.read_csv(sdrf_filepath, sep="\t")
     manifest = sdrf_table[
@@ -52,8 +53,9 @@ def sdrf_to_manifest(
     ].drop_duplicates()
     manifest["data type"] = data_type
 
-    logger.info(f"Writing FragPipe manifest to '{manifest_filepath}'")
-    manifest.to_csv(manifest_filepath, sep="\t", index=False, header=False)
+    logger.debug(f"Writing FragPipe manifest to '{output_filepath}'")
+    output_filepath.parent.mkdir(parents=True, exist_ok=True)
+    manifest.to_csv(output_filepath, sep="\t", index=False, header=False)
 
 
 def update_rawfile_paths_in_manifest(
