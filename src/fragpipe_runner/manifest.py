@@ -13,7 +13,7 @@ def sdrf_to_manifest(
     manifest_filename: str = "manifest.fp-manifest",
     experiment_field: str = "comment[data file]",
     replicate_field: str = "characteristics[biological replicate]",
-) -> pd.DataFrame:
+) -> None:
     """Convert an SDRF file to a FragPipe-compatible '.fp-manifest' file.
 
     Format of the tab-separated FragPipe manifest file:
