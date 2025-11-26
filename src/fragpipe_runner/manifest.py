@@ -23,13 +23,12 @@ def sdrf_to_manifest(
         sdrf_filepath: Path to the SDRF file.
         data_type: Acquisition data type, one of "DDA", "DDA+", "DIA", "DIA-Quant",
             "DIA-Lib" or "GPF-DIA".
-        manifest_filepath: Path to save the FragPipe manifest file. If None, saves to
-            the same directory as the SDRF file.
-        manifest_filename: Filename to use for the created manifest. Default is
-            'manifest.fp-manifest'.
+        manifest_filepath: Filepath to save the FragPipe manifest file. If None, saves
+            to the same directory as the SDRF file using the 'manifest_filename'.
+        manifest_filename: Filename to use for the created manifest if
+            'manifest_filepath' is None. Default is "manifest.fp-manifest".
         experiment_field: Name of the SDRF column to use for the experiment information.
         replicate_field: Name of the SDRF column to use for the replicate information.
-
     """
     supported_data_types = ["DDA", "DDA+", "DIA", "DIA-Quant", "DIA-Lib", "GPF-DIA"]
 
