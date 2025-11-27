@@ -35,8 +35,8 @@ def run_fragpipe(
         output_dir: Path to analysis output directory
         ram: The maximum allowed memory size for FragPipe to use (in GB). Set to 0 to
             let FragPipe decide.
-        threads: The number of CPU threads for FragPipe to use. Set it -1 to let
-            FragPipe decide.
+        threads: The number of CPU threads for FragPipe to use. Set to -1 to let
+            FragPipe decide (by default the number of cores - 1).
         temp_dir: Path to temporary directory to use for FragPipe output. If None,
             FragPipe output will be written directly to 'output_dir'. If provided,
             FragPipe output will first be written to the temporary directory, and then
@@ -96,9 +96,9 @@ def run_fragpipe(
         pathlib.Path(output_path).resolve().as_posix(),
         "--ram",
         str(ram),
-        "--threads",
-        str(threads),
     ]
+    if threads > 0:
+        cmd.extend(["--threads", str(threads)])
 
     # The redirected log file is never created in the temp output directory
     redirected_log_path = final_output_path / "fragpipe_stdout_redirect.log"
